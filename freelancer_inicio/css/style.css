@@ -1,0 +1,263 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;         /* Custom properties*/
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --gris-claro: #dfe9f3;
+}
+/******************************/
+/* Globales */
+html {
+    font-size: 62.5%;           /* 1rem = 10px */ 
+    box-sizing: border-box;     /* Corrige el tamaño de los elementos para incluir el padding y el borde */
+    scroll-snap-type: y mandatory; /* Habilita el scroll snap en el eje vertical */
+}                              
+*, *::before, *::after {
+    box-sizing: inherit;       /* Aplica el box-sizing a todos los elementos */
+} 
+
+body {
+    font-size: 16px;
+    font-family: Audiowide, sans-serif;
+    background-image: linear-gradient(to top, var(--gris-claro) 0%, var(--blanco) 100%);
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+.sombra {
+    box-shadow: -2px 6px 19px 0px rgba(0,0,0,0.56);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: .5rem;
+}
+
+/******************************/
+/* Tipografía */
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3 {
+    text-align: center;
+}
+/* Titulo */
+.titulo span {
+    font-size: 2rem;
+}
+
+/* Navegación */
+
+
+.navegacion-principal {
+   display: flex;
+   flex-direction: column;
+}
+.navegacion-principal a {
+   color: var(--blanco);
+   text-decoration: none;
+   padding: 1rem;
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+/* Imagen hero */
+.hero {
+    background-image: url('../img/hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgb(0 0 0 / 70%);
+    width: 100%;
+    height: 100%;
+    /*===========================================*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /*Centrar vertical y horizontalmente en caja*/
+    justify-content: center;
+    /*===========================================*/
+}
+
+.contenido-hero h2, 
+.contenido-hero p {
+    color: var(--blanco);
+}
+/* Servicios */
+.servicios,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center; /* Alinea el contenedor de servicios al centro del viewport cuando se detiene el scroll */
+    scroll-snap-stop: always; /* Asegura que el scroll snap se aplique incluso si el usuario intenta desplazarse rápidamente */
+}
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem;
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p {
+    line-height: 2;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Formulario */
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%);  /* Utiliza el valor mínimo entre 60rem y el 100% del ancho del contenedor */
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    display: block;
+    color: var(--blanco);
+    margin-bottom: .5rem;
+}
+
+.input-text {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    border: none;
+}
+
+.campo textarea {
+    height: 20rem;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Utilidades */
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.w-sm-100 {
+    width: 100%;
+}
+
+.align-right {
+    justify-content: flex-end;
+}
+
+.flex {
+    display: flex;
+}
+
+.block {
+    display: block;
+}
+
+/* Responsive */
+@media (min-width: 480px) {
+    .boton {
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .w-sm-100 {
+        width: auto;
+    }
+
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+}
+
+
+
+
+
+
